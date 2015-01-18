@@ -1,0 +1,58 @@
+***********************************************************************************************************
+Stanford POS tagger
+***********************************************************************************************************
+[tagger]: A bi-directional dependency network tagger
+[path]:edu/stanford/nlp/models/pos-tagger/english-left3words/english-bidirectional-distsim.tagger 
+[accuracy]: PTB WSJ 22-24 97.32%
+
+[tagger]: left second-order sequence information (similar but less unknown words and lexical features)
+[path]: edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger
+[accuracy]: PTB WSJ 22-24 96.92% (runs a lot faster)
+
+train the model
+* look at the javadoc for the MaxentTagger class
+
+//genererates a property file
+java edu.stanford.nlp.tagger.maxent.MaxentTagger -genprops
+
+*****************************************************************************************************
+//train
+*****************************************************************************************************
+java -mx1g edu.stanford.nlp.tagger.maxent.MaxentTagger -prop <properties file> -trainFile <xxx>
+
+java -cp stanford-corenlp-3.5.0.jar edu.stanford.nlp.tagger.maxent.MaxentTagger 
+	-prop ~/workspace/postagger/train/susanne2.props 
+	-trainFile susanne.corpus 
+	-model susanne.model
+
+*-model = name of the modelfile to be SAVED
+
+*****************************************************************************************************
+//test
+*****************************************************************************************************
+java -mx1g edu.stanford.nlp.tagger.maxent.MaxentTagger -prop <properties file> -testFile <xxx> -model <yyy>
+
+java -cp stanford-corenlp-3.5.0.jar edu.stanford.nlp.tagger.maxent.MaxentTagger 
+	-prop ~/workspace/postagger/train/susanne2.props 
+	-testFile susanne.corpus 
+	-model susanne.model
+
+*-model = name of the model to be USED
+
+*****************************************************************************************************
+//tag
+*****************************************************************************************************
+java -mx1g edu.stanford.nlp.tagger.maxent.MaxentTagger -prop <properties file> -textFile <filename> 
+
+java -cp stanford-corenlp-3.5.0.jar edu.stanford.nlp.tagger.maxent.MaxentTagger 
+	-prop ~/workspace/postagger/train/susanne2.props 
+	-textFile susanne.corpus 
+	-model susanne.model
+
+	-props /train/susanne-left3words-distsim.tagger.props, 
+	-textFile iphone5.txt, 
+	-model /models/taggers/stanford-full-2014-10-26/models/wsj-0-18-left3words-distsim.tagger
+
+*-model = name of the model to be USED
+
+

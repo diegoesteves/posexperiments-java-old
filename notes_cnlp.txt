@@ -1,0 +1,54 @@
+http://www.clearnlp.com/
+
+
+/******************************************************
+# TOKENIZER AND SENTENCE SEGMENTER
+*******************************************************/
+https://code.google.com/p/clearnlp/wiki/Tokenizer
+
+-> tokenizer takes a raw text and splits words by their morphological aspects. 
+It also gives an option of grouping tokens into sentences. 
+Our tokenizer is based on the LDC tokenizer used for creating English Treebanks (as 2012) although it uses more robust heuristics
+
+/******************************************************
+# CONSTITUENT-TO-DEPENDENCY CONVERTER
+*******************************************************/
+https://code.google.com/p/clearnlp/wiki/C2DConvert
+
+-> constituent-to-dependency converter takes the Penn Treebank style constituent trees as input 
+and generates the CLEAR style dependency trees as output. Here are some of the key features 
+of the CLEAR dependency conversion. 
+
+/******************************************************
+# MORPHOLOGICAL ANALYZER	
+*******************************************************/
+https://code.google.com/p/clearnlp/wiki/MPAnalyzer
+
+-> takes word-forms and their part-of-speech tags as input, and generates lemmas of those word-forms as output. 
+
+/******************************************************
+# POS TAGGER
+*******************************************************/
+https://code.google.com/p/clearnlp/wiki/POSTagger
+
+-> part-of-speech tagger uses dynamic model selection that dynamically selects either a domain-specific or a generalized model.
+
+/******************************************************
+# DEPENDENCY PARSER
+*******************************************************/
+https://code.google.com/p/clearnlp/wiki/DEPParser
+
+-> dependency parser uses a transition-based parsing approach that performs transitions from both Nivre's arc-eager 
+and Convington's algorithms. If training data contains only projective trees, it learns transitions only from 
+Nivre's arc-eager algorithm and gives a worst-case parsing complexity of O(n). If training data contains both projective 
+and non-projective trees, it learns transitions from both algorithms and selectively performs non-projective parsing, 
+which gives a linear-time parsing speed on average for the generation of non-projective trees
+
+/******************************************************
+# SEMANTIC ROLE LABELER
+*******************************************************/
+https://code.google.com/p/clearnlp/wiki/SRLabeler
+
+-> semantic role labeler uses a higher-order argument pruning algorithm that significantly improves recall 
+from the first-order argument pruning algorithm, yet keeps a similar labeling complexity in practice
+
